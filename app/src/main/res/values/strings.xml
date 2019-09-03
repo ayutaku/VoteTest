@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">VoteTest</string>
+
+    <string-array name="fruits_list">
+        <item>apple</item>
+        <item>メロン</item>
+        <item>バナナ</item>
+        <item>ぶどう</item>
+        <item>みかん</item>
+    </string-array>
+</resources>
