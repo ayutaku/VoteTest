@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="投票先を選んでください"
         android:textSize="35sp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="100dp"
         android:layout_marginTop="50dp"
         />
 
@@ -22,12 +22,20 @@
         android:id="@+id/spinner_fruits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/fruits_list"
-        android:spinnerMode="dialog"
         android:layout_marginBottom="100dp"
-        >
+        android:entries="@array/fruits_list"
+        android:spinnerMode="dialog">
 
     </Spinner>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="残り-1枚"
+    android:textSize="40sp"
+    android:layout_marginBottom="40dp"
+    android:id="@+id/leftTicket"
+    />
+
 
     <Button
         android:layout_width="wrap_content"
@@ -35,6 +43,15 @@
         android:text="送信"
         android:textSize="50sp"
         android:onClick="send"
+        android:layout_marginBottom="20dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="投票券を増やします"
+        android:textSize="20sp"
+        android:onClick="plus"
         />
 
 </LinearLayout>
