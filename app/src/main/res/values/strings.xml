@@ -8,4 +8,29 @@
         <item>ぶどう</item>
         <item>みかん</item>
     </string-array>
+
+    //add↓
+
+    <string-array name="fish_list">
+        <item>鮎</item>
+        <item>まぐろ</item>
+        <item>たい</item>
+        <item>金魚</item>
+        <item>あじ</item>
+    </string-array>
+
+    <string-array name="drink_list">
+        <item>コーラ</item>
+        <item>オレンジジュース</item>
+        <item>サイダー</item>
+        <item>ビール</item>
+        <item>水</item>
+    </string-array>
+
+    <string-array name="genre_list">
+        <item>fruits</item>
+        <item>fish</item>
+        <item>drink</item>
+    </string-array>
+    //add↑
 </resources>

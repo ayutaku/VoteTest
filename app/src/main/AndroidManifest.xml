@@ -11,6 +11,8 @@
         android:theme="@style/AppTheme"
         android:name="android.support.multidex.MultiDexApplication">
         <activity android:name=".VoteActivity"></activity>
+        <activity android:name=".VoteActivity2"></activity>
+        <activity android:name=".VoteActivity3"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,6 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity android:name=".SelectgenreActivity"></activity>
+　　　　
+
     </application>
 
 </manifest>

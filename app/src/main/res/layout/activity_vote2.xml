@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VoteActivity"
+    tools:context=".VoteActivity2"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     >
@@ -19,24 +19,24 @@
         />
 
     <Spinner
-    android:id="@+id/spinner_fruits"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="100dp"
-    android:entries="@array/fruits_list"
-    android:spinnerMode="dialog">
+        android:id="@+id/spinner_fish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:entries="@array/fish_list"
+        android:spinnerMode="dialog">
 
-</Spinner>
+    </Spinner>
 
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="残り-1枚"
-    android:textSize="40sp"
-    android:layout_marginBottom="40dp"
-    android:id="@+id/leftTicket"
-    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="残り-1枚"
+        android:textSize="40sp"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/leftTicket"
+        />
 
 
     <Button

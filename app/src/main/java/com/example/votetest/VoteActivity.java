@@ -1,15 +1,22 @@
 package com.example.votetest;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class VoteActivity extends AppCompatActivity {
 
@@ -18,8 +25,16 @@ public class VoteActivity extends AppCompatActivity {
     int ticket;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //add↓
+       // Intent i=getIntent();
+       // String genre= i.getStringExtra("genre");
+        //add↑
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote);
 
@@ -28,7 +43,31 @@ public class VoteActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.leftTicket)).setText("残り"+ticket+"枚");
 
         View view = getLayoutInflater().inflate(R.layout.activity_vote, null);
-        spinner = (Spinner)view.findViewById(R.id.spinner_fruits);
+
+        //if(genre=="fruits") {
+          //  spinner = (Spinner) view.findViewById(R.id.spinner_fruits);
+        //}else if(genre=="fish"){
+          //  spinner = (Spinner) view.findViewById(R.id.spinner_fish);
+
+       // }
+       // spinner = (Spinner) view.findViewById(R.id.spinner_fruits);
+
+       // ArrayAdapter adapt = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item);
+
+         // if(genre=="fruits") {
+           //   adapt.add("ばなな");
+             // adapt.add("りんご");
+        //}else if(genre=="fish") {
+          //    adapt.add("あゆ");
+            //  adapt.add("まぐろ");
+          //}else {
+            //  adapt.add("さとう");
+              //adapt.add("しお");
+
+       //}
+
+         // spinner.setAdapter(adapt);
+
     }
 
     public void plus (View v){
@@ -45,11 +84,24 @@ public class VoteActivity extends AppCompatActivity {
         spinner=(Spinner)findViewById(R.id.spinner_fruits);
 
         if(ticket>0) {
-            String selectedFruit = spinner.getSelectedItem().toString();
+            String selectedThing= spinner.getSelectedItem().toString();
+            Calendar calendar = Calendar.getInstance();
+            SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS");
+            String date = sdf.format(calendar.getTime());
+
+            Map<String,Object> qData = new HashMap<String,Object>();
+            qData.put("vote","vote");
+
+
+
+
             FirebaseFirestore db =FirebaseFirestore.getInstance();
-            db.collection("vote")
-                    .document("test")
-                    .update(selectedFruit, FieldValue.increment(1.0));
+            db.collection("rikotenNo1")
+                    .document("category1")
+                    .collection(selectedThing)
+                    .document(date)
+                    .set(qData);
+
 
             ticket--;
             ((TextView) findViewById(R.id.leftTicket)).setText("残り" + ticket + "枚");
@@ -59,7 +111,7 @@ public class VoteActivity extends AppCompatActivity {
             editor.commit();
 
 
-            Toast.makeText(VoteActivity.this, selectedFruit + "に投票しました。", Toast.LENGTH_SHORT).show();
+            Toast.makeText(VoteActivity.this, selectedThing + "に投票しました。", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(VoteActivity.this, "投票券がありません。", Toast.LENGTH_SHORT).show();
         }

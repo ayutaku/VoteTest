@@ -15,7 +15,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void vote (View v){
-        Intent intent =new Intent(this, VoteActivity.class);
+        Intent intent =new Intent(this, SelectgenreActivity.class);
+
+        //VoteActivity→ SelectgenreActivity
+
         startActivity(intent);
         MultiDex.install(this);
     }
